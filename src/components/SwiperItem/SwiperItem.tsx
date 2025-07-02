@@ -32,7 +32,7 @@ const SwiperItem = () => {
           <SwiperSlide key={carusel.id}>
             <div className="h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden rounded-xl">
               <img
-                src={IMAGE_URL + carusel.poster_path}
+                src={IMAGE_URL + carusel.backdrop_path}
                 alt={carusel.title}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />

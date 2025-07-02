@@ -28,7 +28,7 @@ const Movies = () => {
             total={data?.total_results || 500}
             pageSize={20}
             showSizeChanger={false}
-            className=" [&_.ant-pagination-item-active]:!bg-[#C61F1F]  [&_.ant-pagination-item-active]:!text-white"
+            className=" [&_.ant-pagination-item-active]:!bg-[#ff6b6b]  [&_.ant-pagination-item-active]:!text-white"
           />
         </div>
       </div>

@@ -6,7 +6,7 @@ import app from "@/assets/img/appstore.svg"
 import play from "@/assets/img/googleplay.svg"
 const Footer = () => {
   return (
-    <footer className="bg-[#f9f9f9] dark:bg-slate-900 text-gray-700 dark:text-white border-t mt-10 py-10">
+    <footer className="bg-[#f9f9f9] dark:bg-slate-900 text-gray-700 dark:text-white  mt-10 py-10">
       <div className="container mx-auto px-4 max-w-[1280px] grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="space-y-4 flex flex-col items-start gap-12">
           <img src={logo} alt="Logo" className="object-contain" />
