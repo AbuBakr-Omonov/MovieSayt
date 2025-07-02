@@ -18,7 +18,7 @@ const Movies = () => {
 
   return (
     <div>
-      <Genre data={genreData?.genres.slice(0, 5)} />
+      <Genre data={genreData?.genres.slice(0,11)} />
       <MovieView data={data?.results} loading={isLoading} count={12} />
       <div className="w-full flex justify-center mt-10">
         <div className="bg-white dark:bg-slate-800 px-6 py-4 rounded-xl shadow-md">

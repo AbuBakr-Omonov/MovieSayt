@@ -9,7 +9,7 @@ const View = () => {
       <div className=" container flex justify-end">
         <button
           onClick={() => navigate("/movies")}
-          className="flex gap-2 items-center justify-end cursor-pointer"
+          className="flex gap-2 items-center justify-end cursor-pointer  hover:text-[#C61F1F]"
         >
           View more
           <RightOutlined />
