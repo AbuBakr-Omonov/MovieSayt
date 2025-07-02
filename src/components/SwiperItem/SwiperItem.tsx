@@ -54,9 +54,9 @@ const SwiperItem = () => {
           <SwiperSlide key={carusel.id}>
             <div className="h-[80px] md:h-[100px] rounded-lg overflow-hidden border-2 border-transparent hover:border-[#C61F1F] transition-all duration-200">
               <img
-                src={IMAGE_URL + carusel.poster_path}
+                src={IMAGE_URL + carusel.backdrop_path}
                 alt={carusel.title}
-                className="aspect-[4/3] bg-black rounded overflow-hidden flex items-center justify-center"
+                className="aspect-[4/2] bg-black rounded overflow-hidden flex items-center justify-center"
               />
             </div>
           </SwiperSlide>

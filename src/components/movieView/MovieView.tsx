@@ -20,12 +20,12 @@ const MovieView: FC<Props> = ({ data,loading, count }) => {
             key={movie.id}
             className="bg-white dark:bg-slate-900 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
           >
-            <div className="w-full h-64 overflow-hidden">
+            <div className="w-full  overflow-hidden">
               <img
                 loading="lazy"
                 src={IMAGE_URL + movie.poster_path}
                 alt={movie.title}
-                className="aspect-[3/3] bg-black rounded overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                className="aspect-[3/4] bg-black rounded overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105"
               />
             </div>
             <div className="p-4 space-y-2">
