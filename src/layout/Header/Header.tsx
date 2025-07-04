@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {HomeOutlined, VideoCameraOutlined,BookOutlined,SearchOutlined,BulbOutlined, MenuOutlined,} from "@ant-design/icons";
+import {
+  HomeOutlined,
+  VideoCameraOutlined,
+  BookOutlined,
+  SearchOutlined,
+  BulbOutlined,
+  MenuOutlined,
+} from "@ant-design/icons";
 
 import Navlogo from "@/assets/img/LOGOTYPE – BILETICK.svg";
 import CustomButton from "@/components/button/CustomButton";
 import { Button, Drawer } from "antd";
 
 const Header = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   //dark
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -19,15 +26,20 @@ const Header = () => {
     const isDark = document.body.classList.toggle("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
   };
-   //draw
-     const [open, setOpen] = useState(false);
-     const toggleDrawer = () => setOpen(!open);
+  //draw
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = () => setOpen(!open);
   return (
     //sticky top-0 z-50
     <header className="">
       <div className="container mx-auto flex items-center justify-between py-3 px-3 lg:px-0">
         <div className="flex-shrink-0 ">
-          <img onClick={() => navigate("/")} src={Navlogo} alt="Navbar logo" className="w-[140px] cursor-pointer" />
+          <img
+            onClick={() => navigate("/")}
+            src={Navlogo}
+            alt="Navbar logo"
+            className="w-[140px] cursor-pointer"
+          />
         </div>
         <nav className="flex items-center gap-6 max-[600px]:hidden">
           <NavLink
@@ -87,36 +99,44 @@ const Header = () => {
           <CustomButton />
         </div>
         <div className="hidden max-[600px]:block ">
-            <Button
-              type="text"
-              icon={<MenuOutlined style={{ fontSize: 22, color: "#C61F1F" }} />}
-              onClick={toggleDrawer}
-            />
-         </div>
-      </div>
-      <Drawer
-        title="Menu"
-        placement="right"
-        onClose={toggleDrawer}
-        open={open}
-        className="hidden max-[600px]:block "
-      >
-        <div className="flex flex-col gap-4">
-          <NavLink to="/" onClick={toggleDrawer}>
-            <HomeOutlined /> Home
-          </NavLink>
-          <NavLink to="/movies" onClick={toggleDrawer}>
-            <VideoCameraOutlined /> Movies
-          </NavLink>
-          <NavLink to="/saved" onClick={toggleDrawer}>
-            <BookOutlined /> Saved
-          </NavLink>
-          <NavLink to="/search" onClick={toggleDrawer}>
-            <SearchOutlined /> Search
-          </NavLink>
-          <CustomButton />
+          <Button
+            type="text"
+            icon={<MenuOutlined style={{ fontSize: 22, color: "#C61F1F" }} />}
+            onClick={toggleDrawer}
+          />
         </div>
-      </Drawer>
+      </div>
+      <div className="dark:bg-black dark:text-white">
+        <Drawer
+          title="Menu"
+          placement="right"
+          onClose={toggleDrawer}
+          open={open}
+          className="hidden max-[600px]:block "
+          rootClassName="dark:bg-black dark:text-white"
+        >
+          <div className=" flex flex-col gap-4">
+            <NavLink to="/" onClick={toggleDrawer}>
+              <HomeOutlined /> Home
+            </NavLink>
+            <NavLink to="/movies" onClick={toggleDrawer}>
+              <VideoCameraOutlined /> Movies
+            </NavLink>
+            <NavLink to="/saved" onClick={toggleDrawer}>
+              <BookOutlined /> Saved
+            </NavLink>
+            <NavLink to="/search" onClick={toggleDrawer}>
+              <SearchOutlined /> Search
+            </NavLink>
+            <BulbOutlined
+              onClick={Handlthem}
+              style={{ fontSize: "20px", color: "#C61F1F" }}
+              className="cursor-pointer"
+            />
+            <CustomButton />
+          </div>
+        </Drawer>
+      </div>
     </header>
   );
 };
