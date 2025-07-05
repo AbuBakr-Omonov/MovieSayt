@@ -23,7 +23,7 @@ const Movies = () => {
   const { data, isLoading } = getMovies({
     page,
     with_genres: genre,
-    without_genres: "36,27,18,10749",
+    without_genres: "36,27,18",
   });
 
   return (

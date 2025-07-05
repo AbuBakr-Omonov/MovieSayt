@@ -113,7 +113,9 @@ const Header = () => {
           onClose={toggleDrawer}
           open={open}
           className="hidden max-[600px]:block "
-          rootClassName="dark:bg-black dark:text-white"
+          rootClassName="custom-drawer"
+         
+         
         >
           <div className=" flex flex-col gap-4">
             <NavLink to="/" onClick={toggleDrawer}>

@@ -5,7 +5,6 @@ import type { TMovieImage } from "@/types";
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import logo from "@/assets/vite.svg";
-import { Button } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 //
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,63 +19,44 @@ const MovieDetail = () => {
   const { data: creditsData } = getMovieDetail(id || "", "credits");
   // console.log(similarData.results);
   // console.log(data);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
-      <div className="relative max-w-[1300px] mx-auto px-4">
+      <div className="rounded-3xl rounded-b-3xl relative max-w-[1300px] mx-auto  max-[768px]:px-3 max-[500px]:px-2">
         <img
-          className="rounded-3xl w-full h-auto object-cover "
+          className="rounded-3xl  w-full h-auto object-cover max-[500px]:rounded-xl"
           src={IMAGE_URL + data?.backdrop_path}
           alt=""
         />
 
-        <div className="absolute top-4 sm:top-6 md:top-10 left-0 right-0 px-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <p className="text-2xl sm:text-3xl md:text-4xl text-white font-bold">
-            {data?.title}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+        <div className="absolute bottom-6 left-6 right-6 text-white z-10 max-[500px]:bottom-3 max-[500px]:left-3 max-[500px]:right-3">
+          <p className="opacity-50 md:block text-sm md:text-base lg:text-lg max-w-2xl text-gray-200 mb-4 line-clamp-2 max-[500px]:text-xs max-[500px]:mb-2">
+            {data?.overview}
           </p>
-          <div className="flex items-center gap-2">
-            <img className="w-[20px] sm:w-[25px]" src={logo} alt="logo" />
-            <span className="text-white font-Ax text-sm sm:text-base">
-              movie
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <button className="bg-[#C61F1F] hover:bg-[#a91919] transition-colors px-5 py-2 rounded-lg text-sm font-semibold max-[500px]:px-3 max-[500px]:py-1 max-[500px]:text-xs">
+              Add to wishlist
+            </button>
+            <span className="text-[20px] text-red-600 max-[500px]:text-sm">
+              {data?.release_date.split("-")[0]}
             </span>
           </div>
         </div>
-      </div>
-      <div className="relative z-10 -mt-16 sm:-mt-24 md:-mt-36 max-w-[1300px] mx-auto px-4 max-[640px]:-mt-48">
-        <div className="bg-gradient-to-t from-[#353434] via-[#2b2727] to-transparent rounded-3xl p-4 sm:p-6 md:p-10 text-white w-full overflow-hidden">
-          <div className="flex flex-col md:flex-row justify-between gap-6">
-            <div className="flex-1 space-y-4">
-              <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
-                <Button
-                  className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-[10px] text-sm sm:text-[14px] font-medium sm:font-semibold "
-                  style={{
-                    backgroundColor: "white",
-                    color: "black",
-                    borderRadius: "6px",
-                    border: "1px solid white",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  Accept Free Trial
-                </Button>
 
-                <Button
-                  className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-[10px] text-sm sm:text-[14px] font-normal sm:font-medium"
-                  style={{
-                    backgroundColor: "black",
-                    color: "white",
-                    borderRadius: "6px",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  + Add to Watchlist
-                </Button>
-              </div>
-
-              <p className="text-gray-300 text-sm sm:text-[15px] leading-relaxed">
-                {data?.overview}
-              </p>
-            </div>
+        <div className="absolute top-4 sm:top-6 md:top-5 left-0 right-0 px-4 sm:px-6 flex sm:flex-row sm:items-center justify-between gap-2 max-[500px]:px-2 max-[500px]:top-2">
+          <p className="text-2xl sm:text-3xl md:text-4xl text-white font-bold max-[500px]:text-lg max-[400px]:text-base">
+            {data?.title}
+          </p>
+          <div className="flex items-center gap-2">
+            <img
+              className="w-[20px] sm:w-[25px] max-[500px]:w-[18px]"
+              src={logo}
+              alt="logo"
+            />
+            <span className="text-white font-Ax text-sm sm:text-base max-[500px]:text-xs">
+              movie
+            </span>
           </div>
         </div>
       </div>
@@ -130,7 +110,7 @@ const MovieDetail = () => {
               className="text-center text-sm text-white space-y-1 py-[30px]"
             >
               <img
-               onClick={() => navigate(`/personDeatil/${person.id}`)}
+                onClick={() => navigate(`/personDeatil/${person.id}`)}
                 src={
                   person?.profile_path
                     ? IMAGE_URL + person.profile_path

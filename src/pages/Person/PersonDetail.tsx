@@ -34,7 +34,7 @@ const PersonDetail = () => {
               </h2>
 
               <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line max-[640px]:text-justify">
-                {data?.biography?.slice(0,600) || "Biography not available."}
+                {data?.biography?.slice(0,740) || "Biography not available."}
               </p>
             </div>
           </div>
