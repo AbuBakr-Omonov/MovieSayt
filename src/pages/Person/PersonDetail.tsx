@@ -1,10 +1,11 @@
 import { usePerson } from "@/api/hooks/usePerson";
 import MovieView from "@/components/movieView/MovieView";
 import { IMAGE_URL } from "@/const";
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const PersonDetail = () => {
+  useEffect(() => window.scrollTo(0, 0));
   const { id } = useParams();
   const { getPerson, getMovieCredits } = usePerson();
   const { data } = getPerson(id || "");
@@ -34,13 +35,15 @@ const PersonDetail = () => {
               </h2>
 
               <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line max-[640px]:text-justify">
-                {data?.biography?.slice(0,740) || "Biography not available."}
+                {data?.biography?.slice(0, 740) || "Biography not available."}
               </p>
             </div>
           </div>
         </div>
         <div>
-          <p className="ml-[20px] font-Ax text-[25px] dark:text-white">Movies</p>
+          <p className="ml-[20px] font-Ax text-[25px] dark:text-white">
+            Movies
+          </p>
         </div>
         <MovieView
           data={creditsData?.cast?.slice(0, 8)}
@@ -48,8 +51,10 @@ const PersonDetail = () => {
           count={12}
         />
 
-         <div>
-          <p className="ml-[20px] font-Ax text-[25px] dark:text-white">Movies && crew</p>
+        <div>
+          <p className="ml-[20px] font-Ax text-[25px] dark:text-white">
+            Movies && crew
+          </p>
         </div>
         <MovieView
           data={creditsData?.crew?.slice(0, 4)}

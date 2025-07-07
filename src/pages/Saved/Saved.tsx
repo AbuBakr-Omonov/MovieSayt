@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
 const Saved = () => {
-  return (
-    <div>Saved</div>
-  )
-}
+  useEffect(() => window.scrollTo(0, 0));
+  return <div className="min-h-[300px]">Saved</div>;
+};
 
-export default React.memo(Saved)
+export default React.memo(Saved);

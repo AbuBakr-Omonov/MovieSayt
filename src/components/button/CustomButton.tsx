@@ -1,20 +1,12 @@
-import { Button } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 const CustomButton = () => {
   return (
-    <Button
-      type="primary"
-      style={{
-        backgroundColor: "#C61F1F",
-        borderColor: "#C61F1F",
-        padding: "18px 66px",
-        borderRadius: "8px",
-        fontSize: "16px",
-      }}
-    >
-      Sign in
-    </Button>
+    <button className="font-Ax flex items-center cursor-pointer text-[#C61F1F] text-[20px] max-[600px]:text-[16px]" >
+      <UserOutlined /> Sign in
+    </button>
   );
 };
+
 
 export default CustomButton;

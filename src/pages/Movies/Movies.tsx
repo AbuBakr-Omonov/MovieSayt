@@ -1,24 +1,24 @@
-
 import { useGenre } from "@/api/hooks/useGenre";
 import { useMovie } from "@/api/hooks/useMovie";
 import Genre from "@/components/genre/Genre";
 import MovieView from "@/components/movieView/MovieView";
 import { useParamsHook } from "@/hooks/useParamsHook";
 import { Pagination } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Movies = () => {
+  useEffect(() => window.scrollTo(0, 0));
   const { getMovies } = useMovie();
   const { getGenres } = useGenre();
 
-  const { getParam , setParam} = useParamsHook();
+  const { getParam, setParam } = useParamsHook();
   const genre = getParam("genre");
   console.log(genre);
 
-  const page = Number(getParam("page"))  || 1
-  const hadlPagination = (value:Number)=> {
-   setParam("page",value.toString())
-  }
+  const page = Number(getParam("page")) || 1;
+  const hadlPagination = (value: Number) => {
+    setParam("page", value.toString());
+  };
   const { data: genreData } = getGenres();
   const { data, isLoading } = getMovies({
     page,
