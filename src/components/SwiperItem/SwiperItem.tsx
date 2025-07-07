@@ -76,8 +76,8 @@ const SwiperItem = () => {
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={5}
-        freeMode={true}
-        watchSlidesProgress={true}
+        freeMode
+        watchSlidesProgress
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper max-w-[800px] mx-auto"
         
