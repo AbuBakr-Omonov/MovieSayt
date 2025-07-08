@@ -53,7 +53,7 @@ const Search = () => {
           </div>
         )}
         <div className="mt-8">
-          <MovieView data={data?.results} loading={isLoading} count={10} />
+          <MovieView data={data?.results} loading={isLoading} count={12} />
         </div>
       </div>
     </div>
